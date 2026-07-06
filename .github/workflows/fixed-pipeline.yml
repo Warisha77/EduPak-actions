@@ -1,0 +1,19 @@
+name: "System Sanity Validation"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  environment-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Display Init Message
+        run: echo "Starting server check..."
+
+      - name: Confirm App Entry
+        run: test -f index.html

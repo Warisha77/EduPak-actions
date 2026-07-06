@@ -1,0 +1,18 @@
+company_name: EduPak.pk
+version: 1.0.0
+active: true
+services:
+  - web
+  - database
+  - cache
+  - mail
+server:
+  ip: 192.168.1.50
+  port: 8080
+  os: Ubuntu 26.04
+team:
+  lead: Lead Engineer
+  members:
+    - Member Alpha
+    - Member Beta
+    - Member Gamma

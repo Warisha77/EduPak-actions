@@ -1,0 +1,12 @@
+name: Warisha Ahmed
+age: 19
+city: Karachi
+enrolled: true
+courses:
+  - Linux
+  - Bash Scripting
+  - Git & GitHub
+  - Docker
+address:
+  city: Karachi
+  country: Pakistan
