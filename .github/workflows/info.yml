@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Step 1 - Print Your Name
-        run: echo "Warisha Ahmed
+        run: echo "Warisha Ahmed"
 
       - name: Step 2 - Show Date
         run: date
