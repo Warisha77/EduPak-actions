@@ -7,25 +7,27 @@ A clean, high-performance deployment and server automation workspace for **EduPa
 ## Workspace Architecture
 
 ```text
-edupak-actions/
+EduPak-actions/
 ├── .github/
 │   └── workflows/
-│       ├── first-pipeline.yml   # Task 1: Basic workflow runner
-│       ├── multi-job.yml        # Task 2: Sequential pipeline dependencies
-│       ├── ci.yml               # Task 3: Production Matrix & Cron CI/CD pipeline
-│       └── fixed-pipeline.yml   # Task 4: Corrected system validation pipeline
+│       ├── info.yml
+│       ├── multi-job.yml
+│       ├── ci.yml
+│       └── fixed-pipeline.yml
 ├── scripts/
-│   ├── student-info.sh          # Task 1: Formatted information card
-│   ├── greet.sh                 # Task 2: Argument parsing & validation
-│   ├── age-check.sh             # Task 3: Conditional logic check
-│   ├── service-manager.sh       # Task 4: Systemctl process manager
-│   └── health-check.sh          # Bonus: System telemetry script
-├── screenshots/                 # Execution verification captures
+│   ├── student-info.sh
+│   ├── greet.sh
+│   ├── age-check.sh
+│   ├── service-manager.sh
+│   └── health-check.sh
+├── CSS/
+│   └── style.css                # Professional dark theme styles
+├── js/
+│   └── main.js                  # Client-side dynamic state interaction
+├── screenshots/
 ├── index.html                   # Glassmorphic premium landing page
-├── style.css                    # Professional dark theme styles
-├── main.js                      # Client-side dynamic state interaction
-├── student.yml                  # Structured user data YAML profile
-└── edupak-config.yml            # System architecture mapping configuration[cite: 1]
+├── student.yml
+└── EduPak-config.yml
 
 🚀 CORE DELIVIRABLES SUMMARY:
 1. Continuous Integration (GitHub Actions)
