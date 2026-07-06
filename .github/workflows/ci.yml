@@ -1,0 +1,64 @@
+name: Task 3 & Bonus - CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  schedule:
+    - cron: '0 9 * * *' # Bonus Task: Runs daily at 9:00 AM UTC
+
+env:
+  APP_NAME: EduPak.pk
+  VERSION: 1.2.0
+
+jobs:
+  check-files:
+    strategy:
+      matrix:
+        os-version: [ubuntu-latest, ubuntu-22.04] # Bonus Task: Matrix Strategy
+    runs-on: ${{ matrix.os-version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify Core Web Files Exist
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f main.js
+
+  security:
+    runs-on: ubuntu-latest
+    needs: check-files
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify No Secrets / .env Exposed
+        run: |
+          if [ -f .env ]; then
+            echo "Security Alert: .env file detected!"
+            exit 1
+          else
+            echo "Clean: No local environment configuration exposure detected."
+          fi
+
+  report:
+    runs-on: ubuntu-latest
+    needs: security
+    steps:
+      - name: Status Reporting Summary
+        run: |
+          echo "==== Deployment Status Report ===="
+          echo "Triggered By Actor: ${{ github.actor }}"
+          echo "Source Branch Ref : ${{ github.ref_name }}"
+          echo "Target Platform   : ${{ env.APP_NAME }}"
+
+      - name: Success Banner
+        if: success()
+        run: echo "Execution Status Success - Ready to merge."
+
+      - name: Failure Banner
+        if: failure()
+        run: echo "Execution Status Critical - Workflow process aborted due to failures."

@@ -1,0 +1,22 @@
+name: Task 1 - Information
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  initial-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code 
+        uses: actions/checkout@v4
+        
+      - name: Step 1 - Print Your Name
+        run: echo "Warisha Ahmed
+
+      - name: Step 2 - Show Date
+        run: date
+
+      - name: Step 3 - List Files
+        run: ls -la
